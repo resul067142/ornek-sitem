@@ -158,6 +158,8 @@ return [
         ],
     ],
 
+    'tc_kimlik_dogrulamasi' => 'TC kimlik numaranız hatalı.',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes
@@ -173,6 +175,7 @@ return [
         'ad' => 'İsim',
         'email' => 'E-posta',
         'sifre' => 'Şifre',
+        'tc_kimlik_no' => 'TC Kimlik No'
     ],
 
 ];

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d28156d89821f2623d3a5599e2e8d01",
+    "content-hash": "504861dc27649fa7e25bdfbb0ff0aba0",
     "packages": [
         {
             "name": "brick/math",
@@ -432,6 +432,54 @@
                 }
             ],
             "time": "2022-06-18T20:57:19+00:00"
+        },
+        {
+            "name": "epigra/tckimlik",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/epigra/tckimlik.git",
+                "reference": "9500067d0334b538bf588242864eb792722c54c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/epigra/tckimlik/zipball/9500067d0334b538bf588242864eb792722c54c3",
+                "reference": "9500067d0334b538bf588242864eb792722c54c3",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Epigra\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Uğur Aydoğdu",
+                    "email": "ugur.aydogdu@epigra.com"
+                }
+            ],
+            "description": "TC Kimlik Numarası Kontrolü ve Doğrulaması",
+            "homepage": "https://github.com/epigra/tckimlik",
+            "keywords": [
+                "doğrulama",
+                "form",
+                "kimlik",
+                "laravel",
+                "tc",
+                "tc kimlik",
+                "tckn",
+                "validation"
+            ],
+            "support": {
+                "issues": "https://github.com/epigra/tckimlik/issues",
+                "source": "https://github.com/epigra/tckimlik/tree/v1.0.1"
+            },
+            "time": "2016-02-10T01:42:03+00:00"
         },
         {
             "name": "fruitcake/php-cors",

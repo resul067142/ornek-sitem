@@ -4,6 +4,8 @@ namespace App\Http\Requests\Uyelik;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use App\Rules\TcKimlikDogrulamasiRule;
+
 class UyeOlRequest extends FormRequest
 {
     /**
@@ -24,9 +26,10 @@ class UyeOlRequest extends FormRequest
     public function rules()
     {
         return [
-            'ad' => 'required|string|max:100',
-            'email' => 'required|email|max:200',
+            'isim' => 'required|string|max:100',
+            'email' => 'required|email|max:200|unique:uyeler,email',
             'sifre' => 'required|string|min:6|max:100',
+            'tc' => [ 'required', 'numeric', new TcKimlikDogrulamasiRule() ],
         ];
     }
 }

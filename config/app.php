@@ -190,6 +190,7 @@ return [
         Jenssegers\Agent\AgentServiceProvider::class,
         Lanin\Laravel\ApiDebugger\ServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+        Epigra\TCKimlikServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -6,9 +6,10 @@
     <form method="post" action="{{ route('uyelik.uye_ol.kayit') }}" class="container my-5">
         @csrf
 
-        <x-floating name="ad" />
+        <x-floating name="isim" />
         <x-floating name="email" type="email" />
         <x-floating name="sifre" type="password" />
+        <x-floating name="tc" type="number" />
 
         <button type="submit" class="btn btn-outline-dark shadow-sm">Gönder</button>
     </form>

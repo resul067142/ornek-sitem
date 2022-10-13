@@ -1,5 +1,10 @@
 <x-layout title="ana_sayfa">
-    <a href="{{ route('uyelik.uye_ol') }}">Üye ol</a>
+    @auth
+        <h1>Merhaba {{ auth()->user()->isim . ' ' . auth()->user()->soyisim }}</h1>
+        <a href="{{ route('uyelik.cikis') }}">Çıkış yap</a>
+    @else
+        <a href="{{ route('uyelik.uye_ol') }}">Üye ol</a>
+    @endif
     {{-- Üye olmak için <a href="{{ route('uyelik.uye_ol') }}">tıklayın</a> --}}
 
 {{--     <x-collapse id="deneme">
