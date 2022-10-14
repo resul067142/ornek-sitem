@@ -12,7 +12,9 @@
         "lanin/laravel-api-debugger": "^4.0",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
+        "laravel/socialite": "^5.5",
         "laravel/tinker": "^2.7",
+        "predis/predis": "^2.0",
         "rap2hpoutre/laravel-log-viewer": "^2.2"
     },
     "require-dev": {

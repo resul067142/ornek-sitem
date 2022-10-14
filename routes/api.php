@@ -8,6 +8,8 @@ use App\Http\Controllers\UyelikController;
 //     return $request->user();
 // });
 
-Route::post('uyelik/uye-ol', [ UyelikController::class, 'uyeOlKayitApi' ]);
+Route::get('uyelik/session', [ UyelikController::class, 'session' ]);
 
+Route::post('uyelik/uye-ol', [ UyelikController::class, 'uyeOlKayitApi' ]);
+Route::post('uyelik/giris-yap', [ UyelikController::class, 'girisYapApi' ]);
 Route::get('uyelik/liste', [ UyelikController::class, 'uyelerApi' ]);

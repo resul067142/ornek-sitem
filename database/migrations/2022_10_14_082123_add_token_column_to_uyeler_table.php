@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('uyeler', function (Blueprint $table) {
-            $table->id();
-            $table->string('isim')->nullable()->default(null);
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('tc');
-            $table->timestamps();
+        Schema::table('uyeler', function (Blueprint $table) {
+            $table->string('token')->unique()->nullable()->default(null);
         });
     }
 
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('uyeler');
+        Schema::table('uyeler', function (Blueprint $table) {
+            $table->dropColumn('token');
+        });
     }
 };

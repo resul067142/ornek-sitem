@@ -11,6 +11,7 @@
         <button type="submit" class="btn btn-outline-dark shadow-sm">Gönder</button>
 
         <a href="{{ route('uyelik.uye_ol') }}">Üye ol</a>
+        <a href="{{ route('uyelik.github.baglan') }}">Github ile bağlan</a>
     </form>
 
 

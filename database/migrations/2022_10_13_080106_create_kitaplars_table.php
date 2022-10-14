@@ -16,14 +16,6 @@ return new class extends Migration
         Schema::create('kitaplars', function (Blueprint $table) {
             $table->id();
             $table->string('kitap_adi');
-
-            $table->bigInteger('uyeler_id')->nullable()->default(null);
-            $table->foreign('uyeler_id')
-                ->references('id')
-                ->on('uyeler')
-                ->onDelete('set null')
-                ->onUpdate('cascade');
-
             $table->timestamps();
         });
     }

@@ -80,3 +80,20 @@ Model tarafı:
         'email',
         'tc',
     ];
+
+
+### Seeder konusu
+
+Seeder oluşturma: $ php artisan make:seeder UyelerTableSeeder
+Seederları execute etme: $ php artisan db:seed
+Sadece 1 seeder execute etme: $ php artisan db:seed --class=SeederClassAdı
+
+### Factory oluşturma
+
+$ php artisan make:factory KitaplarFactory
+
+Faker örnekleri: https://github.com/fzaninotto/Faker
+
+### Observer oluşturma
+
+$ php artisan make:observer UyelerObserver --model=Uyeler

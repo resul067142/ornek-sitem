@@ -14,11 +14,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        if (app()->env == 'local')
+        {
+            // \App\Models\Kitaplar::factory(10)->create();
+            \App\Models\Uyeler::factory(1000)->create();
+        }
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        if (app()->env == 'local')
+        {
+            $this->call(UyelerTableSeeder::class);
+        }
     }
 }
