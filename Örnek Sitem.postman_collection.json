@@ -1,0 +1,942 @@
+{
+	"info": {
+		"_postman_id": "9d4b9a34-872c-4d65-a066-76e1c5251a48",
+		"name": "Örnek Sitem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14591417"
+	},
+	"item": [
+		{
+			"name": "Rol işlemleri",
+			"item": [
+				{
+					"name": "Roller",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{BASE_URi}}/api/yetki/roller"
+					},
+					"response": []
+				},
+				{
+					"name": "Rol ekle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{BASE_URi}}/api/yetki/rol-ekle"
+					},
+					"response": []
+				},
+				{
+					"name": "Rol sil",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URi}}/api/yetki/rol-sil?id=1",
+							"host": [
+								"{{BASE_URi}}"
+							],
+							"path": [
+								"api",
+								"yetki",
+								"rol-sil"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rol yetkilendir",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URi}}/api/yetki/rol-yetkilendir?role_id=2&permission_id=2",
+							"host": [
+								"{{BASE_URi}}"
+							],
+							"path": [
+								"api",
+								"yetki",
+								"rol-yetkilendir"
+							],
+							"query": [
+								{
+									"key": "role_id",
+									"value": "2"
+								},
+								{
+									"key": "permission_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Kullanıcıya rol ata",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URi}}/api/yetki/kullaniciya-rol-ata?role_id=2&permission_id=2",
+							"host": [
+								"{{BASE_URi}}"
+							],
+							"path": [
+								"api",
+								"yetki",
+								"kullaniciya-rol-ata"
+							],
+							"query": [
+								{
+									"key": "role_id",
+									"value": "2"
+								},
+								{
+									"key": "permission_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Kullanıcıdan rol sil",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URi}}/api/yetki/kullanicidan-rol-sil?kullanici_id=1037&role_id=2",
+							"host": [
+								"{{BASE_URi}}"
+							],
+							"path": [
+								"api",
+								"yetki",
+								"kullanicidan-rol-sil"
+							],
+							"query": [
+								{
+									"key": "kullanici_id",
+									"value": "1037"
+								},
+								{
+									"key": "role_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Yetki işlemleri",
+			"item": [
+				{
+					"name": "Yetkiler",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{BASE_URi}}/api/yetki/yetkiler"
+					},
+					"response": []
+				},
+				{
+					"name": "Yetki ekle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URi}}/api/yetki/yetki-ekle?name=Üye silme yetkisi",
+							"host": [
+								"{{BASE_URi}}"
+							],
+							"path": [
+								"api",
+								"yetki",
+								"yetki-ekle"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Üye silme yetkisi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Yetki sil",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URi}}/api/yetki/yetki-sil?id=1",
+							"host": [
+								"{{BASE_URi}}"
+							],
+							"path": [
+								"api",
+								"yetki",
+								"yetki-sil"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Kullanıcıya yetki ata",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URi}}/api/yetki/kullaniciya-yetki-ata?permission_id=2&kullanici_id=1037",
+							"host": [
+								"{{BASE_URi}}"
+							],
+							"path": [
+								"api",
+								"yetki",
+								"kullaniciya-yetki-ata"
+							],
+							"query": [
+								{
+									"key": "permission_id",
+									"value": "2"
+								},
+								{
+									"key": "kullanici_id",
+									"value": "1037"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Üye ol",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"\r",
+							"    var obj = pm.response.json();\r",
+							"\r",
+							"    pm.collectionVariables.set(\"Anahtar\", obj.token);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_URi}}/api/uyelik/uye-ol?isim=Mutlu&email=mutlu2@etsetra.com&sifre=12341234&tc=12345678911",
+					"host": [
+						"{{BASE_URi}}"
+					],
+					"path": [
+						"api",
+						"uyelik",
+						"uye-ol"
+					],
+					"query": [
+						{
+							"key": "isim",
+							"value": "Mutlu",
+							"description": "required|string|max:100"
+						},
+						{
+							"key": "email",
+							"value": "mutlu2@etsetra.com",
+							"description": "required|email|max:200"
+						},
+						{
+							"key": "sifre",
+							"value": "12341234",
+							"description": "required|string|min:6|max:100"
+						},
+						{
+							"key": "tc",
+							"value": "12345678911",
+							"description": "[ 'required', 'numeric', new TcKimlikDogrulamasiRule() ]"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success (200)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://orneksitem.com/api/uyelik/uye-ol?ad=Mutlu&email=test@asdasd.com&sifre=12341234&tc_kimlik_no=12345678911",
+							"protocol": "http",
+							"host": [
+								"orneksitem",
+								"com"
+							],
+							"path": [
+								"api",
+								"uyelik",
+								"uye-ol"
+							],
+							"query": [
+								{
+									"key": "ad",
+									"value": "Mutlu",
+									"description": "required|string|max:100"
+								},
+								{
+									"key": "email",
+									"value": "test@asdasd.com",
+									"description": "required|email|max:200"
+								},
+								{
+									"key": "sifre",
+									"value": "12341234",
+									"description": "required|string|min:6|max:100"
+								},
+								{
+									"key": "tc_kimlik_no",
+									"value": "12345678911",
+									"description": "[ 'required', 'numeric', new TcKimlikDogrulamasiRule() ]"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "orneksitem.com"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Oct 2022 06:37:31 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Oct 2022 06:37:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.1"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Üyelik başarılı bir şekilde oluşturuldu.\",\n    \"token\": \"asdasfasfgkldjnglsdfkjghsdlkhjsdlşgkhsdlşhjsdlşgjsdlşkgjsdlşkghj\"\n}"
+				},
+				{
+					"name": "Validation Error (422)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://orneksitem.com/api/uyelik/uye-ol?ad=Mutlu&email=test@asdasd.com&sifre=12341234&tc_kimlik_no=12345678911",
+							"protocol": "http",
+							"host": [
+								"orneksitem",
+								"com"
+							],
+							"path": [
+								"api",
+								"uyelik",
+								"uye-ol"
+							],
+							"query": [
+								{
+									"key": "ad",
+									"value": "Mutlu",
+									"description": "required|string|max:100"
+								},
+								{
+									"key": "email",
+									"value": "test@asdasd.com",
+									"description": "required|email|max:200"
+								},
+								{
+									"key": "sifre",
+									"value": "12341234",
+									"description": "required|string|min:6|max:100"
+								},
+								{
+									"key": "tc_kimlik_no",
+									"value": "12345678911",
+									"description": "[ 'required', 'numeric', new TcKimlikDogrulamasiRule() ]"
+								}
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "orneksitem.com"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Oct 2022 06:29:19 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Oct 2022 06:29:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.1"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"İsim alanı zorunludur. (and 3 more errors)\",\n    \"errors\": {\n        \"ad\": [\n            \"İsim alanı zorunludur.\"\n        ],\n        \"email\": [\n            \"E-posta alanı zorunludur.\"\n        ],\n        \"sifre\": [\n            \"Şifre alanı zorunludur.\"\n        ],\n        \"tc_kimlik_no\": [\n            \"TC Kimlik No alanı zorunludur.\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Giriş yap",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"\r",
+							"    var obj = pm.response.json();\r",
+							"\r",
+							"    pm.collectionVariables.set(\"Anahtar\", obj.token);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_URi}}/api/uyelik/giris-yap?email=test2@asda235sd.com&sifre=12341234",
+					"host": [
+						"{{BASE_URi}}"
+					],
+					"path": [
+						"api",
+						"uyelik",
+						"giris-yap"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "test2@asda235sd.com",
+							"description": "required|email|max:200"
+						},
+						{
+							"key": "sifre",
+							"value": "12341234",
+							"description": "required|string|min:6|max:100"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success (200)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://orneksitem.com/api/uyelik/uye-ol?ad=Mutlu&email=test@asdasd.com&sifre=12341234&tc_kimlik_no=12345678911",
+							"protocol": "http",
+							"host": [
+								"orneksitem",
+								"com"
+							],
+							"path": [
+								"api",
+								"uyelik",
+								"uye-ol"
+							],
+							"query": [
+								{
+									"key": "ad",
+									"value": "Mutlu",
+									"description": "required|string|max:100"
+								},
+								{
+									"key": "email",
+									"value": "test@asdasd.com",
+									"description": "required|email|max:200"
+								},
+								{
+									"key": "sifre",
+									"value": "12341234",
+									"description": "required|string|min:6|max:100"
+								},
+								{
+									"key": "tc_kimlik_no",
+									"value": "12345678911",
+									"description": "[ 'required', 'numeric', new TcKimlikDogrulamasiRule() ]"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "orneksitem.com"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Oct 2022 06:37:31 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Oct 2022 06:37:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.1"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Üyelik başarılı bir şekilde oluşturuldu.\",\n    \"token\": \"asdasfasfgkldjnglsdfkjghsdlkhjsdlşgkhsdlşhjsdlşgjsdlşkgjsdlşkghj\"\n}"
+				},
+				{
+					"name": "Validation Error (422)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://orneksitem.com/api/uyelik/uye-ol?ad=Mutlu&email=test@asdasd.com&sifre=12341234&tc_kimlik_no=12345678911",
+							"protocol": "http",
+							"host": [
+								"orneksitem",
+								"com"
+							],
+							"path": [
+								"api",
+								"uyelik",
+								"uye-ol"
+							],
+							"query": [
+								{
+									"key": "ad",
+									"value": "Mutlu",
+									"description": "required|string|max:100"
+								},
+								{
+									"key": "email",
+									"value": "test@asdasd.com",
+									"description": "required|email|max:200"
+								},
+								{
+									"key": "sifre",
+									"value": "12341234",
+									"description": "required|string|min:6|max:100"
+								},
+								{
+									"key": "tc_kimlik_no",
+									"value": "12345678911",
+									"description": "[ 'required', 'numeric', new TcKimlikDogrulamasiRule() ]"
+								}
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "orneksitem.com"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Oct 2022 06:29:19 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Oct 2022 06:29:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.1"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"İsim alanı zorunludur. (and 3 more errors)\",\n    \"errors\": {\n        \"ad\": [\n            \"İsim alanı zorunludur.\"\n        ],\n        \"email\": [\n            \"E-posta alanı zorunludur.\"\n        ],\n        \"sifre\": [\n            \"Şifre alanı zorunludur.\"\n        ],\n        \"tc_kimlik_no\": [\n            \"TC Kimlik No alanı zorunludur.\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Üyeler",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Anahtar",
+						"value": "{{Anahtar}}",
+						"type": "text"
+					}
+				],
+				"url": "{{BASE_URi}}/api/uyelik/liste"
+			},
+			"response": []
+		},
+		{
+			"name": "Avatar yükle",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Anahtar",
+						"value": "{{Anahtar}}",
+						"type": "text"
+					}
+				],
+				"url": "{{BASE_URi}}/api/uyelik/avatar-yukle"
+			},
+			"response": []
+		},
+		{
+			"name": "Session",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Anahtar",
+						"value": "hhNinwTX9Vn0qnoiPQpXoGdKdmu9UeBWfRehjkAWmJ7IWnRmX06QCbotoQfvYVgzP96UUoRuyO17eiUUrvdZFaJbzWX6XnP6y7qD9VE8srRcp1mvNeNM57QBgE0dskVofdlZpmQ1miMfhsjFhx5rrG",
+						"type": "text"
+					}
+				],
+				"url": "{{BASE_URi}}/api/uyelik/session"
+			},
+			"response": []
+		},
+		{
+			"name": "Hesap sil",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Anahtar",
+						"value": "{{Anahtar}}",
+						"type": "text"
+					}
+				],
+				"url": "{{BASE_URi}}/api/uyelik/hesabimi-sil"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URi",
+			"value": "http://orneksitem.com",
+			"type": "string"
+		},
+		{
+			"key": "Anahtar",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
