@@ -25,7 +25,7 @@ class UyelerObserver
      * @param  \App\Models\Uyeler  $uyeler
      * @return void
      */
-    public function updated(Uyeler $uyeler)
+    public function updating(Uyeler $uyeler)
     {
         $old_token = $uyeler->getOriginal('token');
 
@@ -34,6 +34,11 @@ class UyelerObserver
             Redis::del("uyeler:oturum:$old_token");
             Redis::set("uyeler:oturum:$uyeler->token", $uyeler->id, 'EX', 600);
         }
+
+        // if ($uyeler->isDirty('avatar'))
+        // {
+        //     Storage::delete($uyeler->getOriginal('avatar'));
+        // }
     }
 
     /**
@@ -42,9 +47,11 @@ class UyelerObserver
      * @param  \App\Models\Uyeler  $uyeler
      * @return void
      */
-    public function deleted(Uyeler $uyeler)
+    public function deleting(Uyeler $uyeler)
     {
         Redis::del("uyeler:oturum:$uyeler->token");
+
+        // Storage::delete($uyeler->getOriginal('avatar'));
     }
 
     /**
@@ -66,6 +73,6 @@ class UyelerObserver
      */
     public function forceDeleted(Uyeler $uyeler)
     {
-        //
+        Redis::del("uyeler:oturum:$uyeler->token");
     }
 }

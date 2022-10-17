@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Artisan;
 
 use App\Jobs\EpostaKuyruguJob;
 use App\Mail\UyelikDogrulamaKodu;
@@ -17,13 +19,19 @@ use App\Models\Uyeler;
 use App\Models\EpostaDogrulama;
 
 use Auth;
+use Image;
 
 class UyelikController extends Controller
 {
     public function __construct()
     {
         $this->middleware('guest')->except('uyeCikis');
-        // $this->middleware('jwt.kontrol')->only([ 'uyelerApi', 'session' ]);
+        $this->middleware('jwt.kontrol')->only([ 'uyelerApi', 'session', 'hesapSil' ]);
+    }
+
+    public static function tarihSaatYaz()
+    {
+        return date('H:i:s');
     }
 
     public function session()
@@ -95,6 +103,8 @@ class UyelikController extends Controller
         $tablo->token = Str::random(150);
         $tablo->save();
 
+        // print_r(geoip('46.1.12.52'));
+
         return response()
             ->json([
                 'message' => 'İşlem tamam',
@@ -104,8 +114,15 @@ class UyelikController extends Controller
 
     public function uyelerApi()
     {
+        // Artisan::call('islem:process x');
+
         // with yöntemi ile
-        $test = Uyeler::with('getKitap')->paginate(10);
+        $test = Uyeler::with('getKitap')
+            ->with('roles')
+            ->with('permissions')
+            ->withTrashed()
+            ->orderBy('id', 'desc')
+            ->paginate(10);
         // $test = Uyeler::with([ 'getKitaplar' ])->orderBy('id', 'asc')->get();
 
         // join yöntemi ile
@@ -172,5 +189,42 @@ class UyelikController extends Controller
         // Auth::login($uye);
 
         return redirect()->route('ana_sayfa');
+    }
+
+    public function avatarYukle(Request $request)
+    {
+        $max_upload_size = config('options.max_upload_size');
+
+        $request->validate(
+            [
+                'resim' => "required|image|mimes:jpg,jpeg,png,gif|max:$max_upload_size"
+            ]
+        );
+
+        $img = Image::make($request->resim);
+        $isim = 'test';
+
+        Storage::disk('public')->put(
+            'deneme.'.$request->resim->getClientOriginalExtension(),
+            $img->response()
+        );
+
+        $user = request()->user;
+        $user->avatar = storage_path('public/avatar.adi');
+        $user->save();
+
+        return 'ok';
+    }
+
+    public function hesapSil()
+    {
+        $uye = request()->uye;
+        //
+        //
+        $uye->delete();
+        // $uye->restore();
+        // $uye->forceDelete();
+
+        echo 'ok';
     }
 }

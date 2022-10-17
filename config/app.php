@@ -191,6 +191,8 @@ return [
         Lanin\Laravel\ApiDebugger\ServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Epigra\TCKimlikServiceProvider::class,
+        Torann\GeoIP\GeoIPServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -218,6 +220,8 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
         'Debugger' => Lanin\Laravel\ApiDebugger\Facade::class,
+        'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ])->toArray(),
 
 ];

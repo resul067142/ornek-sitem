@@ -9,6 +9,7 @@ class AnaSayfaController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except('tarihOrnekleri');
+        $this->middleware('can:publish articles')->only('tarihOrnekleri');
     }
 
     public function anaSayfa()

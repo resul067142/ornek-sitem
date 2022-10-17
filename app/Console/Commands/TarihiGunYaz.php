@@ -4,21 +4,21 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class Deneme extends Command
+class TarihiGunYaz extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'test';
+    protected $signature = 'tarih:gun_yaz';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Ekrana sadece günü yazdırır.';
 
     /**
      * Execute the console command.
@@ -27,6 +27,6 @@ class Deneme extends Command
      */
     public function handle()
     {
-        \App\Models\Uyeler::find(1)->delete();
+        $this->info(date('d'));
     }
 }

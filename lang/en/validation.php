@@ -175,7 +175,8 @@ return [
         'ad' => 'İsim',
         'email' => 'E-posta',
         'sifre' => 'Şifre',
-        'tc_kimlik_no' => 'TC Kimlik No'
+        'tc_kimlik_no' => 'TC Kimlik No',
+        'resim' => 'Resim',
     ],
 
 ];

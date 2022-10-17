@@ -111,3 +111,19 @@ $ php artisan make:observer UyelerObserver --model=Uyeler
 ### Job oluşturma
 
 $ php artisan make:job EpostaKuyruguJob
+
+### Resim düzenleme paketi
+
+https://image.intervention.io/v2
+
+### IP ile konum verileri paketi
+
+https://lyften.com/projects/laravel-geoip/
+
+### Rol sistemi
+
+https://spatie.be/docs/laravel-permission/v5/basic-usage/new-app
+
+### Komut dosyası oluşturma
+
+$ php artisan make:command TarihiYaz
