@@ -17,7 +17,7 @@ class JsonWebTokenCheckMiddleware
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, $permission = null)
     {
         $uyelik = false;
 
@@ -31,6 +31,14 @@ class JsonWebTokenCheckMiddleware
         if ($uyelik)
         {
             $request->uye = $uyelik;
+
+            if ($permission)
+            {
+                if (!$request->uye->can($permission))
+                    return response()->json([
+                        'mesaj' => 'Yetkiniz yok',
+                    ], 403);
+            }
 
             return $next($request);
         }

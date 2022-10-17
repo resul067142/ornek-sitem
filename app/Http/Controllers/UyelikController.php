@@ -26,7 +26,7 @@ class UyelikController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('uyeCikis');
-        $this->middleware('jwt.kontrol')->only([ 'uyelerApi', 'session', 'hesapSil' ]);
+        $this->middleware('jwt.kontrol:publish articles')->only([ 'uyelerApi', 'session', 'hesapSil' ]);
     }
 
     public static function tarihSaatYaz()
