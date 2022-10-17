@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Redis;
 
+use App\Jobs\EpostaKuyruguJob;
+use App\Mail\UyelikDogrulamaKodu;
+
 use Laravel\Socialite\Facades\Socialite;
 
 use App\Http\Requests\Uyelik\UyeOlRequest;
 
 use App\Models\Uyeler;
+use App\Models\EpostaDogrulama;
 
 use Auth;
 
@@ -19,7 +23,7 @@ class UyelikController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('uyeCikis');
-        $this->middleware('jwt.kontrol')->only([ 'uyelerApi', 'session' ]);
+        // $this->middleware('jwt.kontrol')->only([ 'uyelerApi', 'session' ]);
     }
 
     public function session()
@@ -38,28 +42,38 @@ class UyelikController extends Controller
 
     public function uyeOlKayit(UyeOlRequest $request)
     {
-        $tablo = new Uyeler;
-        $tablo->fill($request->all());
-        $tablo->password = bcrypt($request->sifre);
-        $tablo->save();
+        $uye = new Uyeler;
+        $uye->fill($request->all());
+        $uye->password = bcrypt($request->sifre);
+        $uye->save();
 
-        Auth::login($tablo);
+        Auth::login($uye);
 
         return redirect()->route('ana_sayfa');
     }
 
     public function uyeOlKayitApi(UyeOlRequest $request)
     {
-        $tablo = new Uyeler;
-        $tablo->fill($request->all());
-        $tablo->password = bcrypt($request->sifre);
-        $tablo->token = Str::random(150);
-        $tablo->save();
+        $uye = new Uyeler;
+        $uye->fill($request->all());
+        $uye->password = bcrypt($request->sifre);
+        $uye->token = Str::random(150);
+        $uye->save();
+
+        $kod = Str::random(100);
+
+        $dogrula = new EpostaDogrulama;
+        $dogrula->uyeler_id = $uye->id;
+        $dogrula->token = $kod;
+        $dogrula->save();
+
+        dispatch(new EpostaKuyruguJob($uye, new UyelikDogrulamaKodu($kod)))
+            ->onQueue('e-posta-trafigi');
 
         return response()
             ->json([
                 'message' => 'İşlem tamam',
-                'token' => $tablo->token
+                'token' => $uye->token
             ]);
     }
 
@@ -143,5 +157,20 @@ class UyelikController extends Controller
         $user = Socialite::driver('github')->user();
 
         print_r($user);
+    }
+
+    public function uyelikDogrula(string $kod)
+    {
+        $dogrulama = EpostaDogrulama::where('token', $kod)->firstOrFail();
+
+        $uye = $dogrulama->getUye;
+        $uye->e_posta_dogrulanma_zamani = now();
+        $uye->save();
+
+        $dogrulama->delete();
+
+        // Auth::login($uye);
+
+        return redirect()->route('ana_sayfa');
     }
 }

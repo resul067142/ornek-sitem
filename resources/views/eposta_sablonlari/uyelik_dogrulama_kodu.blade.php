@@ -4,7 +4,7 @@
 Üyeliğinizi tamamlamak için lütfen aşağıdaki linke tıklayın.
 @endcomponent
 
-@component('vendor.mail.html.button', [ 'url' => "/dogrula/$kod" ])
+@component('vendor.mail.html.button', [ 'url' => route('uyelik.uye_ol.dogrula', [ 'kod' => $kod ]) ])
 test
 @endcomponent
 

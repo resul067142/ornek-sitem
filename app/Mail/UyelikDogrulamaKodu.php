@@ -18,7 +18,7 @@ class UyelikDogrulamaKodu extends Mailable
      *
      * @return void
      */
-    public function __construct(int $kod)
+    public function __construct(string $kod)
     {
         $this->kod = $kod;
     }
@@ -30,6 +30,7 @@ class UyelikDogrulamaKodu extends Mailable
      */
     public function build()
     {
+        file_put_contents('test.txt', 'calisti');
         return $this->markdown('eposta_sablonlari.uyelik_dogrulama_kodu', [
             'kod' => $this->kod
         ]);

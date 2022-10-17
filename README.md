@@ -97,3 +97,17 @@ Faker örnekleri: https://github.com/fzaninotto/Faker
 ### Observer oluşturma
 
 $ php artisan make:observer UyelerObserver --model=Uyeler
+
+### POSTMAN değişken atama
+
+	pm.test("Status code is 200", function () {
+	    pm.response.to.have.status(200);
+
+	    var obj = pm.response.json();
+
+	    pm.collectionVariables.set("AUTHORIZATION", obj.key);
+	});
+
+### Job oluşturma
+
+$ php artisan make:job EpostaKuyruguJob
