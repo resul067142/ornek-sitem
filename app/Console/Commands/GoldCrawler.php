@@ -62,7 +62,7 @@ class GoldCrawler extends Command
 
         exit;
 
-        $title_raw = @$table[0]['div'][0]['ul'][0]['li'];
+        $title_raw = isset($table[0]['div'][0]['ul'][0]['li']);
         $items_raw = @$table[0]['div'][1]['ul'];
 
         if ($title_raw)

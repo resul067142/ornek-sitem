@@ -36,9 +36,7 @@ class DepremCrawler extends Command
         {
             $data = [];
 
-            $body = $response->body();
-
-            $saw = new nokogiri($body);
+            $saw = new nokogiri($response->body());
 
             $pre = $saw->get('pre')->toText();
 
@@ -68,11 +66,11 @@ class DepremCrawler extends Command
 
                     $item = array_combine($keys, $cols);
 
-                    if ($item['ml'] >= 5)
-                    {
-                        $this->error('Büyük deprem');
-                        print_r($item);
-                    }
+                    // if ($item['ml'] >= 5)
+                    // {
+                    //     $this->error('Büyük deprem');
+                    //     print_r($item);
+                    // }
 
                     $data[] = $item;
                 }
@@ -81,21 +79,6 @@ class DepremCrawler extends Command
             }
             else
                 $this->error('Deprem servisinde veri yok. #2');
-
-            // $lines = explode(PHP_EOL, $pre);
-
-            // if (count($lines) >= 8)
-            // {
-            //     foreach ($lines as $line)
-            //     {
-            //         $parsed_line = explode(' ', $line);
-
-            //         print_r($parsed_line[0]);
-            //         $this->newLine();
-            //     }
-            // }
-            // else
-            //     $this->error('Deprem servisinde veri yok. #2');
         }
         else
             $this->error('Deprem servisine bağlanılamadı. #1');
