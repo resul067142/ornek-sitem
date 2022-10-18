@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4fa141f65a36196b1278590ca100919a",
+    "content-hash": "2ce2bd233c92c8877eaf15e477c1b2a4",
     "packages": [
         {
             "name": "brick/math",
@@ -2888,6 +2888,67 @@
                 }
             ],
             "time": "2022-08-01T11:03:24+00:00"
+        },
+        {
+            "name": "olamedia/nokogiri",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/olamedia/nokogiri.git",
+                "reference": "98cacc0b4f4b4d32bfb807e72da21489dca8255e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/olamedia/nokogiri/zipball/98cacc0b4f4b4d32bfb807e72da21489dca8255e",
+                "reference": "98cacc0b4f4b4d32bfb807e72da21489dca8255e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-libxml": ">=2.9.0",
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phpspec/prophecy": "~1.0",
+                "phpspec/prophecy-phpunit": "^2.0",
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nokogiri\\": "src/",
+                    "Tests\\Unit\\PHPUnit\\": "tests/unit-phpunit",
+                    "Tests\\Functional\\PHPUnit\\": "tests/functional-phpunit",
+                    "Tests\\Integration\\PHPUnit\\": "tests/integration-phpunit"
+                },
+                "classmap": [
+                    "nokogiri.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "olamedia",
+                    "email": "olamedia@gmail.com",
+                    "homepage": "http://github.com/olamedia",
+                    "role": "Developer"
+                }
+            ],
+            "description": "HTML Parser",
+            "homepage": "http://github.com/olamedia/nokogiri",
+            "keywords": [
+                "html",
+                "parse",
+                "parser"
+            ],
+            "support": {
+                "issues": "https://github.com/olamedia/nokogiri/issues",
+                "source": "https://github.com/olamedia/nokogiri/tree/v2.0.2"
+            },
+            "time": "2020-09-15T00:12:20+00:00"
         },
         {
             "name": "phpoption/phpoption",

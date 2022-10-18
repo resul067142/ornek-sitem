@@ -36,4 +36,8 @@ return [
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
         'redirect' => 'http://orneksitem.com/uyelik/github-ile-baglan',
     ],
+
+    'metals-api' => [
+        'access_key' => env('METALS_API_ACCESS_KEY')
+    ]
 ];

@@ -37,6 +37,11 @@ class Uyeler extends Authenticatable
         'tc' => 'integer',
     ];
 
+    public function scopeLimitliUye($query)
+    {
+        return $query->where('id', '>', 300);
+    }
+
     /**
      * Get the user's first name.
      *
