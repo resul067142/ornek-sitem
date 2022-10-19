@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Istanbul',
 
     /*
     |--------------------------------------------------------------------------
@@ -193,6 +193,7 @@ return [
         Epigra\TCKimlikServiceProvider::class,
         Torann\GeoIP\GeoIPServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Alaouy\Youtube\YoutubeServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -222,6 +223,7 @@ return [
         'Debugger' => Lanin\Laravel\ApiDebugger\Facade::class,
         'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
     ])->toArray(),
 
 ];
