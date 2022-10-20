@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('crawler:doviz');
         $schedule->command('news:detector')->everyMinute();
+        $schedule->command('twitter:token:check')->everyMinute();
     }
 
     /**

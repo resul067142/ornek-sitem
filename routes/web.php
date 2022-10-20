@@ -13,6 +13,7 @@ Route::get('uyelik/cikis-yap', [ UyelikController::class, 'uyeCikis' ])->name('u
 Route::get('uyelik/giris-yap', [ UyelikController::class, 'girisYap' ])->name('login');
 Route::post('uyelik/giris-yap', [ UyelikController::class, 'girisYapIslem' ])->name('login.islem');
 Route::get('tarih-ornekleri', [ AnaSayfaController::class, 'tarihOrnekleri' ]);
+Route::get('ornek-push', [ AnaSayfaController::class, 'ornekPush' ]);
 
 Route::get('auth/redirect', [ UyelikController::class, 'githubBaglan' ])->name('uyelik.github.baglan');
 Route::get('uyelik/github-ile-baglan', [ UyelikController::class, 'githubGeriDonus' ]);

@@ -8,7 +8,7 @@ class AnaSayfaController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('tarihOrnekleri');
+        $this->middleware('auth')->except([ 'tarihOrnekleri', 'ornekPush' ]);
         $this->middleware('can:publish articles')->only('tarihOrnekleri');
     }
 
@@ -25,5 +25,10 @@ class AnaSayfaController extends Controller
         echo date('d.m.Y H:i').PHP_EOL;
         echo date('d.m.Y H:i', strtotime('2020-01-01 12:00:00')).PHP_EOL;
         echo date('d.m.Y H:i', strtotime('-10 hours')).PHP_EOL;
+    }
+
+    public function ornekPush()
+    {
+        return view('ornek_push');
     }
 }

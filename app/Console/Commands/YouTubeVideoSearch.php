@@ -12,7 +12,7 @@ class YouTubeVideoSearch extends Command
      *
      * @var string
      */
-    protected $signature = 'youtube:video:search {--keyword=}';
+    protected $signature = 'youtube:video:search {--keyword=}? {--video_id=}?';
 
     /**
      * The console command description.
@@ -28,8 +28,19 @@ class YouTubeVideoSearch extends Command
      */
     public function handle()
     {
-        $results = Youtube::search($this->option('keyword'), 100);
+        $keyword = $this->option('keyword');
+        $video_id = $this->option('video_id');
 
-        print_r($results);
+        if ($keyword)
+            $results = Youtube::search($keyword, 2);
+        else if ($video_id)
+            $results = Youtube::getCommentThreadsByVideoId($video_id, 2);
+        else
+            $results = Youtube::getPopularVideos('tr', 2);
+
+        foreach ($results as $item)
+        {
+            print_r($item);
+        }
     }
 }

@@ -127,3 +127,25 @@ https://spatie.be/docs/laravel-permission/v5/basic-usage/new-app
 ### Komut dosyası oluşturma
 
 $ php artisan make:command TarihiYaz
+
+### Video toplama komutları
+
+$ php artisan youtube:video:search --keyword=ankara // ankara kelimesini youtube'da arar ve videoları listeler
+$ php artisan youtube:video:search --video_id=12345678901 // id numarası girilen video'a ait yorumları listeler.
+$ php artisan youtube:video:search // Türkiye'deki youtube trendlerini listeler
+
+https://github.com/alaouy/Youtube
+
+### GuzzleHttp kurulum komutları (Stream için)
+
+$ composer require guzzlehttp/guzzle
+$ composer require guzzlehttp/oauth-subscriber
+
+### Kuyruk işlemini redis'ten database yöntemine çekince tabloları migrate etmek
+
+$ php artisan queue:table
+$ php artisan queue:failed-table
+
+### Event oluşturma
+
+$ php artisan make:event MerhabaDunyaEvent

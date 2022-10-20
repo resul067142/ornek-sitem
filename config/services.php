@@ -39,5 +39,5 @@ return [
 
     'metals-api' => [
         'access_key' => env('METALS_API_ACCESS_KEY')
-    ]
+    ],
 ];
