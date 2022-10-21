@@ -227,26 +227,48 @@ host    all             all              ::/0                            md5
 
 ### Sistemin Kurulumu Öncesi Yapılandırma
 
+$ cd /var/www
 $ git clone git@github.com:wutlu/ornek-sitem.git orneksitem.com
-$ nano /etc/apache2/sites-available/medyaizi.com.conf
+$ cd orneksitem.com
+$ composer install
+
+$ cd /etc/apache2/sites-available
+$ nano orneksitem.com.conf
+
 <VirtualHost *:80>
-        ServerName app.medyaizi.com
+    ServerName orneksitem.com
 
-        ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/medyaizi.com/public
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/orneksitem.com/public
 
-        ErrorLog ${APACHE_LOG_DIR}/error.log
-        CustomLog ${APACHE_LOG_DIR}/access.log combined
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    <Directory /var/www/orneksitem.com/>
+        Options Indexes FollowSymLinks
+        AllowOverride all
+        Require all granted
+    </Directory>
 </VirtualHost>
 
-$ sudo a2ensite medyaizi.com.conf
+$ sudo a2ensite orneksitem.com
+$ systemctl reload apache2
 
-$ nano /etc/apache2/apache2.conf
-<Directory /var/www/>
-        Options Indexes FollowSymLinks
-        AllowOverride all 
-        Require all granted
-</Directory>
+### Laravel envoy (otomatik sunucuda kod çalıştırma)
 
-$ sudo service apache2 reload
-$ sudo swapoff -a
+https://laravel.com/docs/9.x/envoy
+
+### Laravel zamanlanmış görevleri linux sunucunun cronjobs tarafına tanımlama
+
+$ crontab -e
+
++ */1 * * * * php /var/www/orneksitem.com.com/artisan schedule:run >> /dev/null 2>&1
+
+
+### Linux yazılan komutu 1 saniyede bir otomatik yenileme
+
+$ watch -n 1 "ps -aux | grep schedule"
+
+### Laravel jobs işlemlerini takip edebileceğimiz bir eklenti
+
+https://laravel.com/docs/9.x/horizon
