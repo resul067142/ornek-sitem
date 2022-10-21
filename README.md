@@ -149,3 +149,104 @@ $ php artisan queue:failed-table
 ### Event oluşturma
 
 $ php artisan make:event MerhabaDunyaEvent
+
+### Binance Laravel paketi
+
+https://github.com/jaggedsoft/php-binance-api
+
+### Dinamik option paketi
+
+https://github.com/appstract/laravel-options
+
+### Telegram paketi
+
+https://github.com/laravel-notification-channels/telegram
+
+### Telegram ile oturum aç butonu
+ <script
+                            async
+                            src="https://telegram.org/js/telegram-widget.js?14"
+                            data-telegram-login="medyaizibot"
+                            data-size="large"
+                            data-radius="3"
+                            data-auth-url="https://callback-adresimiz"
+                            data-request-access="write"></script>
+
+### Ubuntu server için PHP yapılandırması ve Laravel ortam hazırlanması
+
+// Sunucumuzun güncelleyelim.
+$ sudo apt-get update
+$ sudo apt-get upgrade
+
+$ sudo apt install software-properties-common // yazılım kurmak için gerekebilir (bazen)
+
+// Ondrej php paketini tanımlayalım.
+$ sudo add-apt-repository ppa:ondrej/php
+$ sudo apt-get -y update
+
+// apache2, git, php 8, curl, postgresql, redis-server ve supervisor kurulumu
+$ sudo apt-get -y install apache2 git php8 curl postgresql redis-server supervisor
+
+// Sistem için gerekecek PHP alt kütüphanelerini kuralım ve apache için izin verelim.
+$ sudo apt-get -y install php8-mbstring php8-curl php8-cli php8-gd php8-intl php8-tidy php8-xsl php8-zip php8-pgsql php8-bcmath php-redis
+
+$ sudo a2enmod rewrite php8
+$ sudo service apache2 restart
+
+// PHP versiyon paketleyicisi olan Composer'ı kuralım.
+$ curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+
+### Yazılım Yapılandırmaları
+
+## Redis
+
+$ sudo nano /etc/redis/redis.conf
+
+maxmemory 2048mb
+maxmemory-policy allkeys-lru
+
+$ sudo systemctl restart redis-server.service
+$ sudo systemctl enable redis-server.service
+
+// PostgreSQL
+$ sudo -u postgres psql
+
+postgres=# \password
+postgres=# (New Password)
+postgres=# (New Password Repeat)
+postgres=# \q
+
+$ sudo nano /etc/postgresql/10/main/postgresql.conf
+
+max_connections = 5000
+
+$ sudo nano /etc/postgresql/10/main/pg_hba.conf
+
+host    all             all              0.0.0.0/0                       md5
+host    all             all              ::/0                            md5
+
+### Sistemin Kurulumu Öncesi Yapılandırma
+
+$ git clone git@github.com:wutlu/ornek-sitem.git orneksitem.com
+$ nano /etc/apache2/sites-available/medyaizi.com.conf
+<VirtualHost *:80>
+        ServerName app.medyaizi.com
+
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/medyaizi.com/public
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+$ sudo a2ensite medyaizi.com.conf
+
+$ nano /etc/apache2/apache2.conf
+<Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride all 
+        Require all granted
+</Directory>
+
+$ sudo service apache2 reload
+$ sudo swapoff -a

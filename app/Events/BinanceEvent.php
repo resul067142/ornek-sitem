@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class MerhabaDunyaEvent implements ShouldBroadcast
+class BinanceEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -35,11 +35,11 @@ class MerhabaDunyaEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('mesaj-yayini');
+        return new Channel('kripto');
     }
 
     public function broadcastAs()
     {
-        return 'etkinlik.'.$this->data['key'];
+        return $this->data['key'];
     }
 }

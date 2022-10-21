@@ -8,10 +8,13 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
+
+use App\Services\Sms;
 
 class Uyeler extends Authenticatable
 {
-    use HasFactory, SoftDeletes, HasRoles;
+    use HasFactory, SoftDeletes, HasRoles, Notifiable;
 
     protected $table = 'uyeler';
 
@@ -78,5 +81,13 @@ class Uyeler extends Authenticatable
         return Attribute::make(
             get: fn ($value) => $value,
         );
+    }
+
+    public function sendSms(string $message)
+    {
+        if ($this->phone)
+            return (new Sms('netgsm'))->send($this->phone, $message);
+        else
+            return false;
     }
 }

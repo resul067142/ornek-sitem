@@ -4,24 +4,23 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-use App\Events\MerhabaDunyaEvent;
 use App\Models\Uyeler;
 
-class HelloWorld extends Command
+class SmsGonder extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'hello:world {--mesaj=} {--user_id=}';
+    protected $signature = 'sms:gonder';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Push etkinliklerine mesaj gönderir.';
+    protected $description = 'NETGSM üzerinden sms gönderir.';
 
     /**
      * Execute the console command.
@@ -30,11 +29,11 @@ class HelloWorld extends Command
      */
     public function handle()
     {
-        $user = Uyeler::find($this->option('user_id'));
+        $uye = Uyeler::find(1038);
 
-        event(new MerhabaDunyaEvent([
-            'key' => $user->key,
-            'mesaj' => $this->option('mesaj')
-        ]));
+        if ($uye->sendSms('merhaba'))
+            $this->info('Başarılı');
+        else
+            $this->error('Başarısız');
     }
 }

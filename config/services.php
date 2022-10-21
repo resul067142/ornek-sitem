@@ -40,4 +40,19 @@ return [
     'metals-api' => [
         'access_key' => env('METALS_API_ACCESS_KEY')
     ],
+
+    'binance' => [
+        'api_key' => env('BINANCE_API_KEY'),
+        'api_secret' => env('BINANCE_API_SECRET')
+    ],
+
+    'netgsm' => [
+        'header' => env('NETGSM_HEADER'),
+        'username' => env('NETGSM_USERNAME'),
+        'password' => env('NETGSM_PASSWORD'),
+    ],
+
+    'telegram-bot-api' => [
+        'token' => env('TELEGRAM_BOT_TOKEN')
+    ],
 ];

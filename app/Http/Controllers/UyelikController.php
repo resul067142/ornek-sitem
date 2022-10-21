@@ -66,6 +66,7 @@ class UyelikController extends Controller
         $uye->fill($request->all());
         $uye->password = bcrypt($request->sifre);
         $uye->token = Str::random(150);
+        $uye->key = date('ymdhis').Str::random(50);
         $uye->save();
 
         $kod = Str::random(100);
